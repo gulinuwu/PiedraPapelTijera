@@ -1,0 +1,116 @@
+public void PiedraPapelTijera()
+{
+    //Piedra gana a tijeras y pierde con papel
+    //Tijeras gana a papel y pierde con piedra
+    //Papel gana a piedra y pierde con tijeras
+
+    string Jugador1 = "";
+    string Jugador2 = "";
+    int J1 = 0;
+    int J2 = 0;
+    int BestOf = 3;
+
+    while (J1 < BestOf && J2 < BestOf)
+    {
+        Jugador1 = Player1();
+        Jugador2 = Player2();
+        if (Jugador1 == "piedra")
+        {
+            if (Jugador2 == "tijera")
+            {
+                J1++;
+                Console.WriteLine($"Ganador de la ronda Jugador 1 [{J1}], Jugador 2 [{J2}]");
+                Console.WriteLine();
+            }
+            if (Jugador2 == "papel")
+            {
+                J2++;
+                Console.WriteLine($"Ganador de la ronda Jugador 2 [{J2}], Jugador 1 [{J1}]");
+                Console.WriteLine();
+            }
+            if (Jugador2 == "piedra")
+            {
+                Console.WriteLine("Empate");
+                Console.WriteLine();
+            }
+        }
+        if (Jugador1 == "papel")
+        {
+            if (Jugador2 == "piedra")
+            {
+                J1++;
+                Console.WriteLine($"Ganador de la ronda Jugador 1 [{J1}], Jugador 2 [{J2}]");
+                Console.WriteLine();
+            }
+            if (Jugador2 == "tijera")
+            {
+                J2++;
+                Console.WriteLine($"Ganador de la ronda Jugador 2 [{J2}], Jugador 1 [{J1}]");
+                Console.WriteLine();  
+            }
+            if (Jugador2 == "papel")
+            {
+                Console.WriteLine("Empate");
+                Console.WriteLine();
+            }
+        }
+        if (Jugador1 == "tijera")
+        {
+            if (Jugador2 == "piedra")
+            {
+                J2++;
+                Console.WriteLine($"Ganador de la ronda Jugador 2 [{J2}], Jugador 1 [{J1}]");
+                Console.WriteLine();
+            }
+            if (Jugador2 == "papel")
+            {
+                J1++;
+                Console.WriteLine($"Ganador de la ronda Jugador 1 [{J1}], Jugador 2 [{J2}]");
+                Console.WriteLine();
+            }
+            if (Jugador2 == "tijera")
+            {
+                Console.WriteLine("Empate");
+                Console.WriteLine();
+            }
+        }
+    }
+    if (J1 > J2)
+    {
+        Console.WriteLine($"Ha ganado el jugador 1 con el restultado de {J1} a {J2}");
+    }
+    else
+    {
+        Console.WriteLine($"Ha ganado el jugador 2 con el restultado de {J2} a {J1}");
+    }
+    
+}
+
+string Player1()
+{
+    string JugadaJ1;
+    Console.WriteLine("Escribe la jugada (Jugador 1)");
+    do
+    {
+        Console.WriteLine("Movimientos válidos: (Piedra, Papel, Tijera) ");
+        Console.Write("Primer movimiento: ");
+        JugadaJ1 = Console.ReadLine();
+        JugadaJ1 =JugadaJ1.ToLower();
+    }
+    while (JugadaJ1 != "piedra" && JugadaJ1 != "papel" && JugadaJ1 != "tijera");
+    return JugadaJ1;
+}
+string Player2()
+{
+    string JugadaJ2;
+    Console.WriteLine("Escribe la jugada (Jugador 2)");
+    do
+    {
+        Console.WriteLine("Movimientos válidos: (Piedra, Papel, Tijera) ");
+        Console.Write("Primer movimiento: ");
+        JugadaJ2 = Console.ReadLine();
+        JugadaJ2 = JugadaJ2.ToLower();
+    }
+    while (JugadaJ2 != "piedra" && JugadaJ2 != "papel" && JugadaJ2 != "tijera");
+    return JugadaJ2;
+}
